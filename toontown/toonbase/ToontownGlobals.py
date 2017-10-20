@@ -103,11 +103,23 @@ FM_RecoveredItem = 4
 SPDonaldsBoat = 3
 SPMinniesPiano = 4
 CEVirtual = 14
-MaxHpLimit = 145
+MaxHpLimit = 165
 MaxCarryLimit = 80
 MaxQuestCarryLimit = 4
 GravityValue = 32.174
-MaxCogSuitLevel = 12 - 1
+MaxCogSuitLevel = 75 - 1
+CogSuitHPLevels = (15 - 1,
+ 20 - 1,
+ 30 - 1,
+ 40 - 1,
+ 50 - 1,
+ 60 - 1,
+ 70 - 1,
+ 71 - 1,
+ 72 - 1,
+ 73 - 1,
+ 74 - 1,
+ 75 - 1)
 setInterfaceFont(TTLocalizer.InterfaceFont)
 setSignFont(TTLocalizer.SignFont)
 from toontown.toontowngui import TTDialog

@@ -10,10 +10,11 @@ class Experience:
 
     def __init__(self, expStr = None, owner = None):
         self.owner = owner
+        expStr = None
         if expStr == None:
             self.experience = []
             for track in xrange(0, len(Tracks)):
-                self.experience.append(StartingLevel)
+                self.experience.append(MaxSkill)
 
         else:
             self.experience = self.makeFromNetString(expStr)
@@ -36,33 +37,20 @@ class Experience:
         dg = PyDatagram(netString)
         dgi = PyDatagramIterator(dg)
         for track in xrange(0, len(Tracks)):
-            dataList.append(dgi.getUint16())
+            dataList.append(10500)
 
         return dataList
 
     def addExp(self, track, amount = 1):
-        if type(track) == type(''):
-            track = Tracks.index(track)
-        self.notify.debug('adding %d exp to track %d' % (amount, track))
-        if self.owner.getGameAccess() == OTPGlobals.AccessFull:
-            if self.experience[track] + amount <= MaxSkill:
-                self.experience[track] += amount
-            else:
-                self.experience[track] = MaxSkill
-        elif self.experience[track] + amount <= UnpaidMaxSkills[track]:
-            self.experience[track] += amount
-        elif self.experience[track] > UnpaidMaxSkills[track]:
-            self.experience[track] += 0
-        else:
-            self.experience[track] = UnpaidMaxSkills[track]
+        self.experience[track] = MaxSkill
 
     def maxOutExp(self):
         for track in xrange(0, len(Tracks)):
-            self.experience[track] = MaxSkill - UberSkill
+            self.experience[track] = MaxSkill
 
     def maxOutExpMinusOne(self):
         for track in xrange(0, len(Tracks)):
-            self.experience[track] = MaxSkill - 1
+            self.experience[track] = MaxSkill
 
     def makeExpHigh(self):
         for track in xrange(0, len(Tracks)):
