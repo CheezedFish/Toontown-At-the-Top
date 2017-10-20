@@ -19,5 +19,9 @@ echo Username: %ttiUsername%
 echo Gameserver: %TTI_GAMESERVER%
 echo ===============================
 
-%PPYTHON_PATH% -m toontown.toonbase.ClientStart
+:goto
+
+%PPYTHON_PATH% -m toontown.toonbase.ClientStartDist
 pause
+
+goto :goto
